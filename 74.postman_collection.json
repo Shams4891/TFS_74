@@ -1,0 +1,256 @@
+{
+	"info": {
+		"_postman_id": "ff6aae8c-2782-4157-869a-2eb4cfb17e6e",
+		"name": "74",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "FFME_62_Dashboard_User_Companyadmin_Login_in_admin_panel",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "196e3396-1aec-4af0-a96c-84b66882f2c7",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});\r",
+							"var jasondata=JSON.parse(responseBody)\r",
+							"pm.environment.set(\"auth_token_Company\",jasondata.auth_token_Company);\r",
+							"\r",
+							"var jsondata=JSON.parse(responseBody);\r",
+							"var schema = {\r",
+							"    \"$schema\": \"http://json-schema.org/draft-07/schema\",\r",
+							"    \"$id\": \"http://example.com/example.json\",\r",
+							"    \"type\": \"object\",\r",
+							"    \"title\": \"The root schema\",\r",
+							"    \"description\": \"The root schema comprises the entire JSON document.\",\r",
+							"    \"default\": {},\r",
+							"    \"examples\": [\r",
+							"        {\r",
+							"            \"auth_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MDU2Njg5MTksImlhdCI6MTYwNTY2NTMxOSwic3ViIjo5MjEsInVzZXJfdHlwZSI6IkRhc2hib2FyZCIsIm5hbWUiOiJTaGFtc3MgVGFzdmlyciIsImVtYWlsIjoiU2hhZ3k4QGdtYWlsLmNvbSIsIm1lbWJlcl90eXBlIjoyLCJjb21wYW55X2lkIjoxMDgxLCJkZXNpZ25hdGlvbiI6bnVsbCwiZGVwYXJ0bWVudCI6bnVsbH0.WO3wI9RXPOpgCM7eVW4fyTCqK0cPN479KnSuz7Qj0PI\",\r",
+							"            \"message\": \"Successfully logged in.\",\r",
+							"            \"status\": \"success\"\r",
+							"        }\r",
+							"    ],\r",
+							"    \"required\": [\r",
+							"        \"auth_token\",\r",
+							"        \"message\",\r",
+							"        \"status\"\r",
+							"    ],\r",
+							"    \"properties\": {\r",
+							"        \"auth_token\": {\r",
+							"            \"$id\": \"#/properties/auth_token\",\r",
+							"            \"type\": \"string\",\r",
+							"            \"title\": \"The auth_token schema\",\r",
+							"            \"description\": \"An explanation about the purpose of this instance.\",\r",
+							"            \"default\": \"\",\r",
+							"            \"examples\": [\r",
+							"                \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MDU2Njg5MTksImlhdCI6MTYwNTY2NTMxOSwic3ViIjo5MjEsInVzZXJfdHlwZSI6IkRhc2hib2FyZCIsIm5hbWUiOiJTaGFtc3MgVGFzdmlyciIsImVtYWlsIjoiU2hhZ3k4QGdtYWlsLmNvbSIsIm1lbWJlcl90eXBlIjoyLCJjb21wYW55X2lkIjoxMDgxLCJkZXNpZ25hdGlvbiI6bnVsbCwiZGVwYXJ0bWVudCI6bnVsbH0.WO3wI9RXPOpgCM7eVW4fyTCqK0cPN479KnSuz7Qj0PI\"\r",
+							"            ]\r",
+							"        },\r",
+							"        \"message\": {\r",
+							"            \"$id\": \"#/properties/message\",\r",
+							"            \"type\": \"string\",\r",
+							"            \"title\": \"The message schema\",\r",
+							"            \"description\": \"An explanation about the purpose of this instance.\",\r",
+							"            \"default\": \"\",\r",
+							"            \"examples\": [\r",
+							"                \"Successfully logged in.\"\r",
+							"            ]\r",
+							"        },\r",
+							"        \"status\": {\r",
+							"            \"$id\": \"#/properties/status\",\r",
+							"            \"type\": \"string\",\r",
+							"            \"title\": \"The status schema\",\r",
+							"            \"description\": \"An explanation about the purpose of this instance.\",\r",
+							"            \"default\": \"\",\r",
+							"            \"examples\": [\r",
+							"                \"success\"\r",
+							"            ]\r",
+							"        }\r",
+							"    },\r",
+							"    \"additionalProperties\": true\r",
+							"}\r",
+							"var data1 = [true, false];\r",
+							"var data2 = [true, 123];\r",
+							"\r",
+							"pm.test('Schema is valid', function () {\r",
+							"    pm.expect(tv4.validate(jsondata, schema)).to.be.true;\r",
+							"  \r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{auth_token_Company}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"email\": \"Shakdiujhd8@gmail.com\",\r\n \"password\": \"Soskobughjrfu\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URLAut}}/api/v1/field-force/auth/dashboard-user-login",
+					"host": [
+						"{{URLAut}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"field-force",
+						"auth",
+						"dashboard-user-login"
+					]
+				},
+				"description": "\r\n\r\n\r\nObjective:\r\n As a techserve4u/company admin, I want to login to the admin panel so that I can avail of services available according to my member type\r\n\r\n\r\n\r\n\r\n\r\nSE: Shiblu Ahmad\r\nPO: Pranto Majumder\r\nQA: Shams Md Tasvir\r\nReviewer: Pranto Majumder.\r\n\r\nMethod: Post\r\n\r\nBody:\r\n{\r\n\"email\": \"Shami77@gmail.com\",\r\n \"password\": \"Sh8h88i\"\r\n}\r\n\r\nExpected Result:\r\n{\r\n    \"auth_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MDU1NTcwMTAsImlhdCI6MTYwNTU1MzQxMCwic3ViIjo4OTYsInVzZXJfdHlwZSI6IkRhc2hib2FyZCIsIm5hbWUiOiJTaGFtc3MgVGFzdmlyciIsImVtYWlsIjoiU2hhbWk3N0BnbWFpbC5jb20iLCJtZW1iZXJfdHlwZSI6MiwiY29tcGFueV9pZCI6MTA1MywiZGVzaWduYXRpb24iOm51bGwsImRlcGFydG1lbnQiOm51bGx9.MB9QrpTHxNjVRj3Tp5x6zCW1T1OWA1e58yj9e018YrA\",\r\n    \"message\": \"Successfully logged in.\",\r\n    \"status\": \"success\"\r\n}\r\nActual Result:\r\n\r\n{\r\n    \"auth_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MDU1NTcwMTAsImlhdCI6MTYwNTU1MzQxMCwic3ViIjo4OTYsInVzZXJfdHlwZSI6IkRhc2hib2FyZCIsIm5hbWUiOiJTaGFtc3MgVGFzdmlyciIsImVtYWlsIjoiU2hhbWk3N0BnbWFpbC5jb20iLCJtZW1iZXJfdHlwZSI6MiwiY29tcGFueV9pZCI6MTA1MywiZGVzaWduYXRpb24iOm51bGwsImRlcGFydG1lbnQiOm51bGx9.MB9QrpTHxNjVRj3Tp5x6zCW1T1OWA1e58yj9e018YrA\",\r\n    \"message\": \"Successfully logged in.\",\r\n    \"status\": \"success\"\r\n}\r\n\r\nStatus Code: 200  OK.\r\nTest Result: Pass\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "FFME_74_Company_admin_should_be_able_to_update_user_information Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cb5503b6-5d5d-4314-a342-a66399eef348",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});\r",
+							"\r",
+							"var jsondata= JSON.parse(responseBody)\r",
+							"var schema = {\r",
+							"    \"$schema\": \"http://json-schema.org/draft-07/schema\",\r",
+							"    \"$id\": \"http://example.com/example.json\",\r",
+							"    \"type\": \"object\",\r",
+							"    \"title\": \"The root schema\",\r",
+							"    \"description\": \"The root schema comprises the entire JSON document.\",\r",
+							"    \"default\": {},\r",
+							"    \"examples\": [\r",
+							"        {\r",
+							"            \"status\": true,\r",
+							"            \"statusCode\": 201,\r",
+							"            \"message\": \"User Updated Successfully\"\r",
+							"        }\r",
+							"    ],\r",
+							"    \"required\": [\r",
+							"        \"status\",\r",
+							"        \"statusCode\",\r",
+							"        \"message\"\r",
+							"    ],\r",
+							"    \"properties\": {\r",
+							"        \"status\": {\r",
+							"            \"$id\": \"#/properties/status\",\r",
+							"            \"type\": \"boolean\",\r",
+							"            \"title\": \"The status schema\",\r",
+							"            \"description\": \"An explanation about the purpose of this instance.\",\r",
+							"            \"default\": false,\r",
+							"            \"examples\": [\r",
+							"                true\r",
+							"            ]\r",
+							"        },\r",
+							"        \"statusCode\": {\r",
+							"            \"$id\": \"#/properties/statusCode\",\r",
+							"            \"type\": \"integer\",\r",
+							"            \"title\": \"The statusCode schema\",\r",
+							"            \"description\": \"An explanation about the purpose of this instance.\",\r",
+							"            \"default\": 0,\r",
+							"            \"examples\": [\r",
+							"                201\r",
+							"            ]\r",
+							"        },\r",
+							"        \"message\": {\r",
+							"            \"$id\": \"#/properties/message\",\r",
+							"            \"type\": \"string\",\r",
+							"            \"title\": \"The message schema\",\r",
+							"            \"description\": \"An explanation about the purpose of this instance.\",\r",
+							"            \"default\": \"\",\r",
+							"            \"examples\": [\r",
+							"                \"User Updated Successfully\"\r",
+							"            ]\r",
+							"        }\r",
+							"    },\r",
+							"    \"additionalProperties\": true\r",
+							"}\r",
+							"\r",
+							"var data1 = [true, false];\r",
+							"var data2 = [true, 123];\r",
+							"\r",
+							"pm.test('Schema is valid', function () {\r",
+							"    \r",
+							"    pm.expect(tv4.validate(jsondata, schema)).to.be.true;\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{auth_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"first_name\":\"Shahms\",\r\n\"last_name\":\"Tashvir\",\r\n\"department\":\"TECH\",\r\n\"designation\":\"software developer\",\r\n\"email\":\"yaa@gmail.com\",\r\n\"nid\":\"45856456887445787\",\r\n\"profile_photo\":\"https://previews.123rf.com/images/gmast3r/gmast3r1411/gmast3r141100280/33645487-profile-icon-male-avatar-portrait-casual-person.jpg\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URLMgt}} /api/v1/field-force/users/admin/user/update/{{User_Id}}",
+					"host": [
+						"{{URLMgt}} "
+					],
+					"path": [
+						"api",
+						"v1",
+						"field-force",
+						"users",
+						"admin",
+						"user",
+						"update",
+						"{{User_Id}}"
+					]
+				},
+				"description": "\r\n\r\nObjective: As a company admin, I want to update the user so that they can view their updated profile info.\r\n\r\n\r\nSE: Shiblu Ahmad\r\nPO: Pranto Majumder\r\nQA: Shams Md Tasvir\r\nReviewer: Pranto Majumder.\r\n\r\nMethod: PUT\r\n\r\nBody :\r\n\r\n{\r\n\"first_name\":\"Karim\",\r\n\"last_name\":\"Benzema\",\r\n\"department\":\"TECH\",\r\n\"designation\":\"software developer\",\r\n\"email\":\"a@gmail.com\",\r\n\"nid\":\"45856456887445788\",\r\n\"profile_photo\":\"https://previews.123rf.com/images/gmast3r/gmast3r1411/gmast3r141100280/33645487-profile-icon-male-avatar-portrait-casual-person.jpg\"\r\n}\r\n\r\nExpected Result:\r\n{\r\n    \"status\": true,\r\n    \"statusCode\": 201,\r\n    \"message\": \"User Updated Successfully\"\r\n}\r\nActual Result:\r\n\r\n{\r\n    \"status\": true,\r\n    \"statusCode\": 201,\r\n    \"message\": \"User Updated Successfully\"\r\n}\r\nStatus Code: 200  OK.\r\nTest Result: Pass\r\n"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
